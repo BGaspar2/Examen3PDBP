@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>
+    Reporte del Paciente
+    <a routerLink="/paciente/index"
+      ><img
+        align="right"
+        src="https://www.pucese.edu.ec/wp-content/uploads/2022/07/logo-completo-multicolor.png"
+        alt="logo pucese"
+        width="40%"
+        height="20%"
+        title="logo pucese"
+    /></a>
+  </h1>
+
+  <a href="#" routerLink="/paciente/index" class="btn btn-primary">Volver</a>
+  <br /><br />
+  <div>
+    <strong>Identificador del Paciente:</strong>
+    <p>{{ post._id }}</p>
+  </div>
+
+  <div>
+    <strong>Nombre del Paciente:</strong>
+    <p>{{ post.nombreCompleto }}</p>
+  </div>
+
+  <div>
+    <strong>Nivel de Azucar del Paciente:</strong>
+    <p>{{ post.porcentajeAzucar }}%</p>
+  </div>
+
+  <div>
+    <strong>Nivel de Grasa del Paciente:</strong>
+    <p>{{ post.porcentajeGrasa }}%</p>
+  </div>
+
+  <div>
+    <strong>Nivel de Oxigeno del Paciente:</strong>
+    <p>{{ post.porcentajeOxigeno }}%</p>
+  </div>
+
+  <div>
+    <strong>Nivel de Riesgo:</strong>
+    <p>{{ post.riesgo }}</p>
+  </div>
+  <div>
+    <strong>Sugerencias:</strong>
+    <p>
+      Los valores adecuados de porcentaje de azúcar tienen que ser menor a 50%,
+      porcentaje de grasa menor a 62.2% y porcentaje de oxígeno mayor a 70% de
+      esta manera el paciente tiene un riesgo BAJO de enfermar gravemente.
+    </p>
+  </div>
+</div>

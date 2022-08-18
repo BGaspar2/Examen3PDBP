@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>
+    LISTADO PACIENTES - PUCESE
+    <a routerLink="/paciente/index"
+      ><img
+        align="right"
+        src="https://www.pucese.edu.ec/wp-content/uploads/2022/07/logo-completo-multicolor.png"
+        alt="logo pucese"
+        width="40%"
+        height="20%"
+        title="logo pucese"
+    /></a>
+  </h1>
+
+  <a href="#" routerLink="/paciente/create/" class="btn btn-success"
+    >Ingresar Nuevo Paciente</a
+  >
+  <br />
+  <br />
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Identificador</th>
+        <th>Nombre</th>
+        <th>N. Azucar</th>
+        <th>N. Grasa</th>
+        <th>N. Oxigeno</th>
+        <th>Riesgo</th>
+        <th width="220px">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let paciente of paciente; let i = index"
+        [attr.data-index]="i"
+      >
+        <td>#{{ i + 1 }}</td>
+        <td>{{ paciente._id }}</td>
+        <td>{{ paciente.nombreCompleto }}</td>
+        <td>{{ paciente.porcentajeAzucar }}%</td>
+        <td>{{ paciente.porcentajeGrasa }}%</td>
+        <td>{{ paciente.porcentajeOxigeno }}%</td>
+        <td>{{ paciente.riesgo }}</td>
+        <td>
+          <a
+            href="#"
+            [routerLink]="['/paciente/', paciente._id, 'view']"
+            class="btn btn-info"
+            >Ver</a
+          >
+          <a
+            href="#"
+            [routerLink]="['/paciente/', paciente._id, 'edit']"
+            class="btn btn-primary"
+            >Editar</a
+          >
+          <button
+            type="button"
+            (click)="deletePost(paciente._id)"
+            class="btn btn-danger"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

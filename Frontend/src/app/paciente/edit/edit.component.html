@@ -1,0 +1,188 @@
+<div class="container">
+  <h1>
+    Datos del Paciente
+    <a href="#" routerLink="/paciente/index"
+      ><img
+        align="right"
+        src="https://www.pucese.edu.ec/wp-content/uploads/2022/07/logo-completo-multicolor.png"
+        alt="logo pucese"
+        width="40%"
+        height="20%"
+        title="logo pucese"
+    /></a>
+  </h1>
+
+  <a href="#" routerLink="/paciente/index" class="btn btn-primary">Volver</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="nombreCompleto">Nombre:</label>
+      <input
+        formControlName="nombreCompleto"
+        id="nombreCompleto"
+        type="text"
+        placeholder="Introduce el nombre del paciente.."
+        [(ngModel)]="paciente.nombreCompleto"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['nombreCompleto'].touched && f['nombreCompleto'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['nombreCompleto'].errors && f['nombreCompleto'].errors['required']
+          "
+        >
+          Nombre del paciente obligatorio.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="porcentajeAzucar">% Azucar:</label>
+      <input
+        formControlName="porcentajeAzucar"
+        id="porcentajeAzucar"
+        type="number"
+        min="0"
+        max="100"
+        placeholder="Introduce el nivel de azucar.."
+        [(ngModel)]="paciente.porcentajeAzucar"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['porcentajeAzucar'].touched && f['porcentajeAzucar'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['porcentajeAzucar'].errors &&
+            f['porcentajeAzucar'].errors['required']
+          "
+        >
+          Nivel de azucar obligatorio.
+        </div>
+        <div
+          *ngIf="
+            f['porcentajeAzucar'].errors && f['porcentajeAzucar'].errors['max']
+          "
+        >
+          El numero ingresado es mayor a 100.
+        </div>
+        <div
+          *ngIf="
+            f['porcentajeAzucar'].errors && f['porcentajeAzucar'].errors['min']
+          "
+        >
+          El numero ingresado no es positivo.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="porcentajeGrasa">% Grasa:</label>
+      <input
+        formControlName="porcentajeGrasa"
+        id="porcentajeGrasa"
+        type="number"
+        min="0"
+        max="100"
+        placeholder="Introduce el nivel de grasa.."
+        [(ngModel)]="paciente.porcentajeGrasa"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['porcentajeGrasa'].touched && f['porcentajeGrasa'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['porcentajeGrasa'].errors &&
+            f['porcentajeGrasa'].errors['required']
+          "
+        >
+          Nivel de grasa obligatorio.
+        </div>
+        <div
+          *ngIf="
+            f['porcentajeGrasa'].errors && f['porcentajeGrasa'].errors['max']
+          "
+        >
+          El numero ingresado es mayor a 100.
+        </div>
+        <div
+          *ngIf="
+            f['porcentajeGrasa'].errors && f['porcentajeGrasa'].errors['min']
+          "
+        >
+          El numero ingresado no es positivo.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="porcentajeOxigeno">% Oxigeno:</label>
+      <input
+        formControlName="porcentajeOxigeno"
+        id="porcentajeOxigeno"
+        type="number"
+        min="0"
+        max="100"
+        placeholder="Introduce el nivel de oxigeno.."
+        [(ngModel)]="paciente.porcentajeOxigeno"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['porcentajeOxigeno'].touched && f['porcentajeOxigeno'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['porcentajeOxigeno'].errors &&
+            f['porcentajeOxigeno'].errors['required']
+          "
+        >
+          Nivel de oxigeno obligatorio.
+        </div>
+        <div
+          *ngIf="
+            f['porcentajeOxigeno'].errors &&
+            f['porcentajeOxigeno'].errors['max']
+          "
+        >
+          El numero ingresado es mayor a 100.
+        </div>
+        <div
+          *ngIf="
+            f['porcentajeOxigeno'].errors &&
+            f['porcentajeOxigeno'].errors['min']
+          "
+        >
+          El numero ingresado no es positivo.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="riesgo">Riesgo:</label>
+      <input
+        formControlName="riesgo"
+        id="riesgo"
+        type="text"
+        [(ngModel)]="paciente.riesgo"
+        class="form-control"
+      />
+    </div>
+    <br />
+
+    <button
+      (click)="calcularRiesgo()"
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      Actualizar
+    </button>
+  </form>
+</div>

@@ -17,7 +17,7 @@
   >
   <br />
   <br />
-  <table class="table table-bordered">
+  <table *ngIf="paciente.length > 0" class="table table-bordered">
     <thead>
       <tr>
         <th>N°</th>
@@ -66,4 +66,5 @@
       </tr>
     </tbody>
   </table>
+  <h5 style="text-align: start; margin: top 10px;" *ngIf="paciente.length == 0">No hay Registros en el sistema.</h5>
 </div>
